@@ -1,78 +1,124 @@
-video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-}
-
-img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-}
-
-
 .hero-container {
-    /* background: url('/video/video-2.mp4') center center/cover no-repeat; */
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-    object-fit: contain;
+  height: 100vh;
+  width: 100vw; /* Use viewport width to ensure full width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../images/macaronArray3.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative; /* For gradient overlay positioning */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent any scrollbars */
+  left: 0;
+  right: 0;
+}
+/* Add a subtle darkening overlay for the whole hero */
+.hero-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 0;
 }
 
-.hero-container > h1 {
-    color: #fff;
-    font-size: 100px;
-    margin-top: 20%;
+
+
+.hero-features {
+  text-align: center;
+  max-width: 800px;
+  z-index: 2; /* Above the overlays */
+  padding: 0 20px;
+  position: relative; /* Ensure z-index works */
 }
 
-.hero-container > p {
-    color: #fff;
-    font-size: 32px;
-    margin-top: 8px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.heroLine {
+  color: #fff;
+  font-size: 4rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.heroSubLine {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero-btns {
-    margin-top: 32px;
+  margin-top: 30px;
 }
 
-.hero-btns .btn {
-    margin: 6px;
+.hero-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  margin: 0 10px 10px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.fa play-circle {
-    margin-left: 4px;
+.btn-primary {
+  background-color: var(--macaron-pink);
+  color: white;
+  border: 2px solid var(--macaron-pink);
 }
 
-@media screen and (max-width: 960px) {
-    .hero-container > h1 {
-        font-size: 100px;
-        margin-top: ;
-    }
+.btn-primary:hover {
+  background-color: var(--macaron-purple);
+  border-color: var(--macaron-purple);
+  transform: translateY(-5px);
 }
 
-@media screen and (max-width: 760px) {
-    .hero-container > h1 {
-        font-size: 50px;
-        margin-top: 50%;
-    }
-    .hero-container > p {
-        font-size: 50px;
-    }
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
 
-    .btn-mobile {
-        display: block;
-        text-decoration: none;
-    }
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
 
-    .btn {
-        width: 100%;
-    }
+@media screen and (max-width: 768px) {
+  .heroLine {
+    font-size: 3rem;
+  }
+  
+  .heroSubLine {
+    font-size: 1.2rem;
+  }
+  
+  .hero-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroLine {
+    font-size: 2.5rem;
+  }
+  
+  .hero-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .hero-btn {
+    width: 200px;
+    margin: 0 0 10px;
+  }
 }

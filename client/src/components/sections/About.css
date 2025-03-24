@@ -1,0 +1,155 @@
+.about-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-content {
+    max-width: 1200px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .about-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--macaron-brown);
+  }
+  
+  /* Values Section */
+  .about-values {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 10px 0;
+  }
+  
+  .value-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .value-icon {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+  }
+  
+  .value-card:nth-child(1) .value-icon {
+    color: var(--macaron-pink);
+    background-color: var(--macaron-light-pink);
+  }
+  
+  .value-card:nth-child(2) .value-icon {
+    color: var(--macaron-blue);
+    background-color: var(--macaron-light-blue);
+  }
+  
+  .value-card:nth-child(3) .value-icon {
+    color: var(--macaron-purple);
+    background-color: var(--macaron-light-purple);
+  }
+  
+  .value-card:nth-child(4) .value-icon {
+    color: var(--macaron-brown);
+    background-color: var(--macaron-cream);
+  }
+  
+  .value-card h3 {
+    font-size: 1.1rem;
+    color: var(--macaron-brown);
+    margin-bottom: 10px;
+  }
+  
+  .value-card p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Milestones */
+  .about-milestones {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 10px;
+  }
+  
+  .milestone {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 45%;
+  }
+  
+  .milestone-year {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--macaron-pink);
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  .milestone-content h3 {
+    font-size: 1.2rem;
+    color: var(--macaron-brown);
+    margin-bottom: 5px;
+  }
+  
+  .milestone-content p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Responsive styling */
+  @media screen and (max-width: 992px) {
+    .about-values {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .about-milestones {
+      flex-direction: column;
+    }
+    
+    .milestone {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .about-values {
+      grid-template-columns: 1fr;
+    }
+  }

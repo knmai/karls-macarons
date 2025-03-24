@@ -5,37 +5,154 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.home,
-.services,
-.products,
-.sign-up {
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Define colors based on your logo */
+:root {
+  --macaron-blue: #6C748F;  /* Blue circle from logo */
+  --macaron-purple: #9D4A76; /* Purple circle from logo */
+  --macaron-pink: #D67986;   /* Pink circle from logo */
+  --macaron-brown: #6D3E22;  /* Brown text color from logo */
+  --macaron-light-blue: #E0E6F2;  /* Lighter version of blue */
+  --macaron-light-purple: #F2E0ED; /* Lighter version of purple */
+  --macaron-light-pink: #FFE6EA;   /* Lighter version of pink */
+  --macaron-cream: #FFF9E6;    /* Warm cream color for backgrounds */
+}
+
+.section-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  width: 100vw; /* Ensure full width */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  scroll-behavior: smooth; /* Ensure all scroll events are smooth */
+  -webkit-overflow-scrolling: touch; /* Better scrolling on iOS */
+}
+
+section {
+  height: 100vh; /* Fixed height instead of min-height */
+  width: 100%;
+  scroll-snap-align: start; /* Align to the start of each section */
+  scroll-snap-stop: always; /* Force stopping at each snap point */
   display: flex;
-  height: 90vh;
+  flex-direction: column;
   align-items: center;
+  position: relative;
+  padding: 100px 20px 20px; /* Reduced padding */
+  overflow: hidden; /* Prevent scrolling within sections */
+  border: none;
+  outline: none;
+}
+
+/* The home section should not have top padding to show full hero */
+#home {
+  padding: 0;
+  margin: 0;
+  background-color: transparent; /* Changed from cream to transparent */
+  border: none;
+  outline: none;
+  overflow: hidden;
+}
+
+.separator {
+  width: 70%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+}
+
+.section-title {
+  font-size: 2.2rem; /* Slightly smaller for better fit */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.8rem;
+  color: var(--macaron-brown);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--macaron-pink);
+}
+
+.section-content {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: 3rem;
 }
 
-.services {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+/* Pastel colors for different sections based on logo */
+#shop {
+  background-color: var(--macaron-light-pink);
 }
 
-.products {
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+#about {
+  background-color: var(--macaron-light-purple);
 }
 
-.sign-up {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+#faq {
+  background-color: var(--macaron-light-blue);
+}
+
+#contact {
+  background-color: var(--macaron-cream);
+}
+
+/* Additional helper class to detect active section more accurately */
+.section-visible {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* For mobile responsiveness */
+@media screen and (max-width: 960px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  section {
+    padding-top: 80px; /* Match mobile navbar height */
+  }
+}
+
+/* Force scrolling behavior */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Add this to improve behavior on touch devices */
+@media (pointer: coarse) {
+  .section-container {
+    -webkit-overflow-scrolling: touch;
+  }
 }
